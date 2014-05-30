@@ -20,7 +20,8 @@
 OWRT_DIST_SVN_PATH = openwrt/branches/attitude_adjustment
 #OWRT_DIST_REV = 29709
 #OWRT_DIST_REV = 31639
-OWRT_DIST_REV = 35267
+#OWRT_DIST_REV = 35267
+OWRT_DIST_REV = 35752
 
 OWRT_DIST_LOCAL_PATH = openwrt
 OWRT_DIST_SVN_REV = $(shell svn info openwrt/ | tail -3 | head -1 | awk '{print $$4}')
@@ -80,7 +81,7 @@ robin_checkout:
 	touch $@
 
 apply_patches: 
-	cp $(PATCHES_PATH)/default-config-backfire $(OWRT_DIST_LOCAL_PATH)/.config
+	cp $(PATCHES_PATH)/ar71xx-24kc.config $(OWRT_DIST_LOCAL_PATH)/.config
 	touch $@
 
 standard_config: apply_patches
